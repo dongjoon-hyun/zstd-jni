@@ -27,8 +27,8 @@ jobs:
           env:
             AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
             AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            AWS_DEFAULT_REGION: "us-east-1"
-          run: aws s3 cp --recursive target/classes/${{ matrix.target }} s3://zstd-jni/github/${{ matrix.target }}
+            AWS_DEFAULT_REGION: "us-west-2"
+          run: aws s3 cp --recursive target/classes/${{ matrix.target }} s3://dongjoon/zstd-jni/github/${{ matrix.target }}
 
     macos:
         strategy:
@@ -65,8 +65,8 @@ jobs:
           env:
             AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
             AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            AWS_DEFAULT_REGION: "us-east-1"
-          run: aws s3 cp --recursive target/classes/darwin/${{ matrix.host_arch }} s3://zstd-jni/github/darwin/${{ matrix.target_arch }}
+            AWS_DEFAULT_REGION: "us-west-2"
+          run: aws s3 cp --recursive target/classes/darwin/${{ matrix.host_arch }} s3://dongjoon/zstd-jni/github/darwin/${{ matrix.target_arch }}
 
     windows:
         strategy:
@@ -106,5 +106,5 @@ jobs:
           env:
             AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
             AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            AWS_DEFAULT_REGION: "us-east-1"
-          run: 'aws s3 cp --recursive target\classes\${{ matrix.target }} s3://zstd-jni/github/${{ matrix.s3_path }}'
+            AWS_DEFAULT_REGION: "us-west-2"
+          run: 'aws s3 cp --recursive target\classes\${{ matrix.target }} s3://dongjoon/zstd-jni/github/${{ matrix.s3_path }}'
